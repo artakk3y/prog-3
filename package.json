@@ -1,0 +1,26 @@
+{
+  "name": "last_task_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artakk3y/prog-3.git"
+  },
+  "author": "artakk3y",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanumanum/test-heroku-gol/issues"
+  },
+  "homepage": "https://tumotestgol.herokuapp.com/",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "engines": {
+    "node": "4.7.2"
+  }
+}
