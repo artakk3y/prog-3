@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    background-color: rgb(204, 209, 202);
+}
+
+input{
+    background-color: rgb(141, 140, 140);
+    border: none;
+    margin-right: 15px;
+    border-radius: 7px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    font-size: 100%;
+    display: block;
+}
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}    
+label{
+    color: darkcyan;
+    font-family: sans-serif;
+    
+    margin: auto;
+}
+
