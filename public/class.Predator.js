@@ -3,28 +3,10 @@ let PredatorEnergyAdd = 16;
 let PredatorEnergyMin = 3;
 let PredatorMulEnergy = 5;
 
-class Predator {
-    constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.energy = 8;
-        this.index = index;
-        this.directions = [];
-        this.multiply = 0;
-    }
+class Predator extends Base {
     chooseCell(character) {
         this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        return super.chooseCell(character)
 
     }
     mul() {
@@ -33,7 +15,7 @@ class Predator {
         var newCell = random(emptyCells);
 
         // console.log(emptyCells);
-        if (newCell && this.multiply >= PredatorMulTick && this.energy > PredatorMulEnergy) {
+        if (newCell && this.multiply >= 8 && this.energy > 5) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 3;
@@ -41,20 +23,8 @@ class Predator {
             var predator = new Predator(newX, newY, 3);
             predatorArr.push(predator);
             this.multiply = 0;
-            this.energy -= PredatorEnergyMin;
+            this.energy -= 3;
         }
-    }
-    getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
     }
     move() {
         this.energy--;
@@ -77,7 +47,7 @@ class Predator {
         var emptyCells = this.chooseCell(2);
         var newCell = random(emptyCells);
         if (newCell) {
-            this.energy += PredatorEnergyAdd;
+            this.energy += 16;
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = matrix[this.y][this.x];

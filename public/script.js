@@ -78,11 +78,11 @@ function setup() {
     for(var y = 0; y < matrix.length; ++y){
         for(var x = 0; x < matrix[y].length; ++x){
             if(matrix[y][x] == 1){
-                var gr = new Grass(x,y,1);
+                var gr = new Grass(x,y);
                 grassArr.push(gr);
             }
             else if(matrix[y][x] == 2){
-                var grea = new GrassEater(x,y,2);
+                var grea = new GrassEater(x,y);
                 grassEaterArr.push(grea);
             }
             else if(matrix[y][x] == 3){

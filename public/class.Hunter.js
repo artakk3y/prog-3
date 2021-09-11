@@ -5,42 +5,11 @@ let HunterVsBear = 4;
 
 
 
-class Hunter {
-    constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.energy = 8;
-        this.index = index;
-        this.directions = [];
-        this.multiply = 0;
-    }
+class Hunter extends Base{
+    
     chooseCell(character) {
         this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
-
-    }
-
-    getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+        return super.chooseCell(character)
     }
     move() {
         this.energy--;
@@ -90,7 +59,7 @@ class Hunter {
 
                 for (var i in grassArr) {
                     if (newX == grassArr[i].x && newY == grassArr[i].y) {
-                        this.energy += HunterVsGrass;
+                        this.energy += 3;
                         grassArr.splice(i, 1);
                         break;
                     }
@@ -100,7 +69,7 @@ class Hunter {
             } else if (num == 2) {
                 for (var i in grassEaterArr) {
                     if (newX == grassEaterArr[i].x && newY == grassEaterArr[i].y) {
-                        this.energy += HunterVsGrassEater;
+                        this.energy += 6;
                         grassEaterArr.splice(i, 1);
                         break;
                     }
@@ -109,7 +78,7 @@ class Hunter {
             else if (num == 3) {
                 for (var i in predatorArr) {
                     if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
-                        this.energy += HunterVsPredator;
+                        this.energy += 1;
                         predatorArr.splice(i, 1);
                         break;
                     }
@@ -118,7 +87,7 @@ class Hunter {
             else if (num == 4) {
                 for (var i in bearArr) {
                     if (newX == bearArr[i].x && newY == bearArr[i].y) {
-                        this.energy += HunterVsBear;
+                        this.energy += 4;
                         bearArr.splice(i, 1);
                         break;
                     }
