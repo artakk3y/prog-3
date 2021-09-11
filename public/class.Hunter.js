@@ -11,23 +11,7 @@ class Hunter extends Base{
         this.getNewCoordinates()
         return super.chooseCell(character)
     }
-    move() {
-        this.energy--;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
-        if (this.energy > 0 && newCell) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-            matrix[newY][newX] = matrix[this.y][this.x];
-            matrix[this.y][this.x] = 0;
-            this.y = newY;
-            this.x = newX;
-        }
-        else {
-            this.die()
-        }
 
-    }
     eat() {
         let test = this.chooseCell(2);
         if (test.length > 0) {
