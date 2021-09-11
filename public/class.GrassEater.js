@@ -1,8 +1,5 @@
-
 let GrassEaterEnergyAdd = 1;
 let GrassEaterEnergyMin = 3;
-
-
 
 class GrassEater extends Base{
     chooseCell(character) {

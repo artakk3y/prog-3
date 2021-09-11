@@ -16,7 +16,7 @@ class Bear extends Base{
         var newCell = random(emptyCells);
 
 
-        if (newCell && this.multiply >= 8 && this.energy > 5) {
+        if (newCell && this.multiply >= BearMulTick && this.energy > BearMulEnergy) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 4;
@@ -24,7 +24,7 @@ class Bear extends Base{
             var br = new Bear(newX, newY);
             bearArr.push(br);
             this.multiply = 0;
-            this.energy -= 3;
+            this.energy -= BearEnergyMin;
         }
     }
     
@@ -40,7 +40,7 @@ class Bear extends Base{
         //  console.log(emptyCells);
         var newCell = random(emptyCells);
         if (newCell) {
-            this.energy += 3;
+            this.energy += BearEnergyAdd;
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = matrix[this.y][this.x];

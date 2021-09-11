@@ -1,4 +1,4 @@
-let HunterVsGrass = 3;
+let HunterVsGrass = 1;
 let HunterVsGrassEater = 6;
 let HunterVsPredator = 1;
 let HunterVsBear = 4;
@@ -43,7 +43,7 @@ class Hunter extends Base{
 
                 for (var i in grassArr) {
                     if (newX == grassArr[i].x && newY == grassArr[i].y) {
-                        this.energy += 3;
+                        this.energy += HunterVsGrass;
                         grassArr.splice(i, 1);
                         break;
                     }
@@ -53,7 +53,7 @@ class Hunter extends Base{
             } else if (num == 2) {
                 for (var i in grassEaterArr) {
                     if (newX == grassEaterArr[i].x && newY == grassEaterArr[i].y) {
-                        this.energy += 6;
+                        this.energy += HunterVsGrassEater;
                         grassEaterArr.splice(i, 1);
                         break;
                     }
@@ -62,7 +62,7 @@ class Hunter extends Base{
             else if (num == 3) {
                 for (var i in predatorArr) {
                     if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
-                        this.energy += 1;
+                        this.energy += HunterVsPredator;
                         predatorArr.splice(i, 1);
                         break;
                     }
@@ -71,7 +71,7 @@ class Hunter extends Base{
             else if (num == 4) {
                 for (var i in bearArr) {
                     if (newX == bearArr[i].x && newY == bearArr[i].y) {
-                        this.energy += 4;
+                        this.energy += HunterVsBear;
                         bearArr.splice(i, 1);
                         break;
                     }

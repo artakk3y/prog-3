@@ -1,4 +1,3 @@
-let PredatorMulTick = 8;
 let PredatorEnergyAdd = 16;
 let PredatorEnergyMin = 3;
 let PredatorMulEnergy = 5;
@@ -15,7 +14,7 @@ class Predator extends Base {
         var newCell = random(emptyCells);
 
         // console.log(emptyCells);
-        if (newCell && this.multiply >= 8 && this.energy > 5) {
+        if (newCell && this.multiply >= 8 && this.energy > PredatorMulEnergy) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 3;
@@ -23,14 +22,14 @@ class Predator extends Base {
             var predator = new Predator(newX, newY);
             predatorArr.push(predator);
             this.multiply = 0;
-            this.energy -= 3;
+            this.energy -= PredatorEnergyMin;
         }
     }
     eat() {
         var emptyCells = this.chooseCell(2);
         var newCell = random(emptyCells);
         if (newCell) {
-            this.energy += 16;
+            this.energy += PredatorEnergyAdd;
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = matrix[this.y][this.x];
