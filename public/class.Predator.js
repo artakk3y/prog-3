@@ -3,6 +3,10 @@ let PredatorEnergyMin = 3;
 let PredatorMulEnergy = 5;
 
 class Predator extends Base {
+    constructor(x, y) {
+        super(x, y)
+        this.arr = predatorArr
+    }
     chooseCell(character) {
         this.getNewCoordinates()
         return super.chooseCell(character)
@@ -49,16 +53,5 @@ class Predator extends Base {
         }
         this.mul()
     }
-
-    die() {
-        matrix[this.y][this.x] = 0;
-        for (var i in predatorArr) {
-            if (this.x == predatorArr[i].x && this.y == predatorArr[i].y) {
-                predatorArr.splice(i, 1);
-                break;
-            }
-        }
-    }
-
 
 }

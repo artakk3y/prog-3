@@ -50,6 +50,15 @@ class Base {
         }
 
     }
+    die() {
+        matrix[this.y][this.x] = 0;
+        for (var i in this.arr) {
+            if (this.x == this.arr[i].x && this.y == this.arr[i].y) {
+                this.arr.splice(i, 1);
+                break;
+            }
+        }
+    }
     
 
 }

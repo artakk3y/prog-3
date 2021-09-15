@@ -2,11 +2,17 @@ let GrassEaterEnergyAdd = 1;
 let GrassEaterEnergyMin = 3;
 
 class GrassEater extends Base{
+    constructor(x,y) {
+        super(x,y)
+        this.arr = grassEaterArr
+    }
     chooseCell(character) {
         this.getNewCoordinates()
         return super.chooseCell(character)
+        
 
     }
+    
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
@@ -50,15 +56,7 @@ class GrassEater extends Base{
         this.mul()
     }
 
-    die() {
-        matrix[this.y][this.x] = 0;
-        for (var i in grassEaterArr) {
-            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                grassEaterArr.splice(i, 1);
-                break;
-            }
-        }
-    }
+    
 
 
 }

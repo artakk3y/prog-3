@@ -6,6 +6,10 @@ let HunterVsBear = 4;
 
 
 class Hunter extends Base{
+    constructor(x, y) {
+        super(x, y)
+        this.arr = hunterArr
+    }
     
     chooseCell(character) {
         this.getNewCoordinates()
@@ -83,16 +87,6 @@ class Hunter extends Base{
             this.move()
         }
 
-    }
-
-    die() {
-        matrix[this.y][this.x] = 0;
-        for (var i in hunterArr) {
-            if (this.x == hunterArr[i].x && this.y == hunterArr[i].y) {
-                hunterArr.splice(i, 1);
-                break;
-            }
-        }
     }
 
 

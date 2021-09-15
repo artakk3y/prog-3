@@ -4,6 +4,10 @@ let BearEnergyMin = 3;
 let BearMulEnergy = 5;
 
 class Bear extends Base{
+    constructor(x, y) {
+        super(x, y)
+        this.arr = bearArr
+    }
     
     chooseCell(character) {
         this.getNewCoordinates()
@@ -73,15 +77,6 @@ class Bear extends Base{
         this.mul()
     }
 
-    die() {
-        matrix[this.y][this.x] = 0;
-        for (var i in bearArr) {
-            if (this.x == bearArr[i].x && this.y == bearArr[i].y) {
-                bearArr.splice(i, 1);
-                break;
-            }
-        }
-    }
-
+    
 
 }
